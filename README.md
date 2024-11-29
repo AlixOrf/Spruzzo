@@ -35,5 +35,5 @@ _exemples :_
 
 ## Liens
 
-* [**Github**]([https://github.com/Esteban-13](https://github.com/AlixOrf/Spruzzo)
-* [**Notion**]([https://github.com/awab26](https://www.notion.so/invite/df345272f5e645cc9ee6042ef5c9204e0e68ebb2)
+* [**Github**](https://github.com/AlixOrf/Spruzzo)
+* [**Notion**](https://www.notion.so/invite/df345272f5e645cc9ee6042ef5c9204e0e68ebb2)
