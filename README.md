@@ -8,6 +8,10 @@ Description
 
 Les logiciel qu'il faut déjà avoir sur son pc (style nodes)
 
+Téléchargez l’IDE Arduino :
+Accédez au site [Arduino](arduino.cc)
+Choisissez la version correspondant à votre système d’exploitation (Windows, macOS ou Linux)
+
 ### Installation
 
 Les étapes pour installer le programme
