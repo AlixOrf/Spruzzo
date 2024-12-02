@@ -12,6 +12,8 @@ Téléchargez l’IDE Arduino :
 Accédez au site [Arduino](arduino.cc)
 Choisissez la version correspondant à votre système d’exploitation (Windows, macOS ou Linux)
 
+Installer les extensions **C/C++** par Microsft sur Visual Studio Code
+
 ### Installation
 
 Les étapes pour installer le programme
