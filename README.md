@@ -6,19 +6,12 @@ Description
 
 ### Pré-requis
 
-Les logiciel qu'il faut déjà avoir sur son pc (style nodes)
-
-Téléchargez l’IDE Arduino :
-Accédez au site [Arduino](arduino.cc)
-Choisissez la version correspondant à votre système d’exploitation (Windows, macOS ou Linux)
-
 Installer les extensions **C/C++** par Microsft et **PlatformIO IDE** par PlatformIO sur Visual Studio Code
 
 ### Installation
 
-Les étapes pour installer le programme
-
-_exemple_: Executez la commande ``npm install`` pour commencer 
+**Initialiser PlatformIO :**
+Ouvrez la page PlatformIO dans VSCode
 
 ## Démarrage
 
