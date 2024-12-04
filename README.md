@@ -6,6 +6,7 @@ Description
 
 ### Pré-requis
 
+Téléchargez et installez **Node.js**
 Installer les extensions **C/C++** par Microsft et **PlatformIO IDE** par PlatformIO sur Visual Studio Code
 
 ### Installation
