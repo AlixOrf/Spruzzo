@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert, Dimensions } from 'react-native';
 import axios from 'axios';
 
-const ESP32_IP = "http://192.168.4.1"; 
+const ESP32_IP = "http://192.168.4.1"; //à changer pour mettre le vrai
 const { width, height } = Dimensions.get('window'); 
 
 const sendCommand = async (command) => {
