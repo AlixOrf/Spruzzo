@@ -2,8 +2,8 @@ import React from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, Alert, Dimensions } from 'react-native';
 import axios from 'axios';
 
-const ESP32_IP = "http://192.168.4.1"; // Adresse IP de l'ESP32
-const { width, height } = Dimensions.get('window'); // Taille de l'écran
+const ESP32_IP = "http://192.168.4.1"; 
+const { width, height } = Dimensions.get('window'); 
 
 const sendCommand = async (command) => {
   try {
@@ -16,10 +16,9 @@ const sendCommand = async (command) => {
 };
 
 const App = () => {
-  const gridSize = 40; // Taille de chaque carré
+  const gridSize = 40; 
 
-// Calcul dynamique pour couvrir l'écran en ajoutant une marge supplémentaire
-const numColumns = Math.ceil(width / gridSize) + 2; // Ajouter un buffer pour couvrir les bords
+const numColumns = Math.ceil(width / gridSize) + 2; 
 const numRows = Math.ceil(height / gridSize) + 2;
 
 return (
@@ -35,7 +34,7 @@ return (
                 width: gridSize,
                 height: gridSize,
                 borderWidth: 0.5,
-                borderColor: '#65B741', // Couleur verte pour les lignes
+                borderColor: '#65B741', 
               }}
             />
           ))}
@@ -43,8 +42,6 @@ return (
       ))}
     </View>
 
-
-      {/* Boutons */}
       <View style={styles.buttonContainer}>
         <TouchableOpacity style={styles.button} onPress={() => sendCommand('avance')}>
           <Text style={styles.buttonText}>🚀 Avancer</Text>
@@ -72,7 +69,7 @@ return (
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F7', // Fond gris clair
+    backgroundColor: '#F5F5F7',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -86,7 +83,7 @@ const styles = StyleSheet.create({
     height: height,
   },
   gridLine: {
-    borderColor: '#65B741', // Couleur verte pour les lignes
+    borderColor: '#65B741',
     borderWidth: 0.5,
   },
   buttonContainer: {
