@@ -6,59 +6,97 @@ const ESP32_IP = "http://192.168.4.1";
 const { width, height } = Dimensions.get('window'); 
 
 const sendCommand = async (command) => {
+  console.log(`Sending command: ${command}`); 
   try {
     await axios.get(`${ESP32_IP}/${command}`);
+    console.log(`Command "${command}" successfully sent to ESP32.`);
     Alert.alert("Commande envoyée", `La commande "${command}" a été envoyée avec succès.`);
   } catch (error) {
+    console.error(`Error sending command "${command}":`, error); 
     Alert.alert("Erreur", "Impossible de contacter le robot.");
-    console.error(error);
   }
 };
 
 const App = () => {
   const gridSize = 40; 
+  const numColumns = Math.ceil(width / gridSize) + 2; 
+  const numRows = Math.ceil(height / gridSize) + 2;
 
-const numColumns = Math.ceil(width / gridSize) + 2; 
-const numRows = Math.ceil(height / gridSize) + 2;
 
-return (
-  <View style={styles.container}>
-    {/* Grille verte */}
-    <View style={styles.gridContainer}>
-      {Array.from({ length: numRows }).map((_, rowIndex) => (
-        <View key={rowIndex} style={{ flexDirection: 'row' }}>
-          {Array.from({ length: numColumns }).map((_, colIndex) => (
-            <View
-              key={`${rowIndex}-${colIndex}`}
-              style={{
-                width: gridSize,
-                height: gridSize,
-                borderWidth: 0.5,
-                borderColor: '#65B741', 
-              }}
-            />
-          ))}
-        </View>
-      ))}
-    </View>
+  return (
+    <View style={styles.container}>
+
+      <View style={styles.gridContainer}>
+        {Array.from({ length: numRows }).map((_, rowIndex) => (
+          <View key={rowIndex} style={{ flexDirection: 'row' }}>
+            {Array.from({ length: numColumns }).map((_, colIndex) => (
+              <View
+                key={`${rowIndex}-${colIndex}`}
+                style={{
+                  width: gridSize,
+                  height: gridSize,
+                  borderWidth: 0.5,
+                  borderColor: '#65B741', 
+                }}
+              />
+            ))}
+          </View>
+        ))}
+      </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('avance')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Avancer');
+            sendCommand('avance');
+          }}
+        >
           <Text style={styles.buttonText}>🚀 Avancer</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('recule')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Reculer');
+            sendCommand('recule');
+          }}
+        >
           <Text style={styles.buttonText}>🔙 Reculer</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('gauche')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Gauche');
+            sendCommand('gauche');
+          }}
+        >
           <Text style={styles.buttonText}>↩️ Gauche</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('droite')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Droite');
+            sendCommand('droite');
+          }}
+        >
           <Text style={styles.buttonText}>↪️ Droite</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('stop')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Stop');
+            sendCommand('stop');
+          }}
+        >
           <Text style={styles.buttonText}>⏹️ Arrêter</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => sendCommand('stop')}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => {
+            console.log('Button pressed: Pompe');
+            sendCommand('pompe');
+          }}
+        >
           <Text style={styles.buttonText}>💧 Pschit</Text>
         </TouchableOpacity>
       </View>
