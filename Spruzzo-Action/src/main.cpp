@@ -1,18 +1,18 @@
 #include <Arduino.h>
+#include "wifi.h"
 
-// put function declarations here:
-int myFunction(int, int);
+// Informations du réseau Wi-Fi
+const char* ssid = "NomDuRéseau";
+const char* password = "MotDePasse";
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(115200); // Initialise la communication série
+
+  // Connexion au Wi-Fi
+  connectToWiFi(ssid, password);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  // Laisse vide pour tester la connexion
 }
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
-}
+ 
