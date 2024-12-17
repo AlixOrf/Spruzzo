@@ -1,24 +1,23 @@
-#include <Arduino.h>       // Nécessaire pour PlatformIO
-#include "mouvement.h"     // Inclut les déclarations des fonctions de mouvement
+#include <Arduino.h>
+#include "mouvement.h"
 
 void setup() {
-  setupMouvement();        // Initialise les broches pour les moteurs
+  setupMouvement();
 }
 
 void loop() {
-  // Exemple : Appelle les fonctions de mouvement depuis mouvement.cpp
-  avancer(125);    // Le robot avance
+  avancer(125);
   delay(3000);
 
-  tournerGauche(125); // Tourne à gauche
+  tournerGauche(125);
   delay(2000);
 
-  tournerDroite(125); // Tourne à droite
+  tournerDroite(125);
   delay(2000);
 
-  reculer(125);    // Le robot recule
+  reculer(125);
   delay(3000);
 
-  arreter();       // Arrête les moteurs
+  arreter();
   delay(2000);
 }

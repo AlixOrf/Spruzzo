@@ -1,5 +1,6 @@
 #include <Arduino.h>        // Nécessaire pour PlatformIO pour utiliser pinMode, digitalWrite, etc.
 #include "driver/ledc.h"    // Pour gérer le PWM sur ESP32
+#include "mouvement.h"
 
 // Broches pour la carte moteur avant
 const int frontIN1 = 16; // Moteur avant gauche (sens 1)
@@ -53,24 +54,6 @@ void setupMouvement() {
 
   ledcSetup(pwmChannelBackENB, pwmFrequency, pwmResolution);
   ledcAttachPin(backENB, pwmChannelBackENB);
-}
-
-void loop() {
-  // Exemple de séquence : avancer, tourner à gauche, reculer
-  avancer(125); // Avancer avec 80% de la vitesse maximale (200/255)
-  delay(3000);
-
-  reculer(125); // Reculer à pleine vitesse
-  delay(3000);
-
-    tournerGauche(125); // Tourner à gauche à 60% de la vitesse
-  delay(2000);
-
-  tournerDroite(125);
-  delay(2000);
-
-  arreter(); // Arrêter le robot
-  delay(2000);
 }
 
 // Fonction pour avancer
