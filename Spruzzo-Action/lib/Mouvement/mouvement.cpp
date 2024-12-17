@@ -27,7 +27,7 @@ const int pwmChannelFrontENB = 1; // Canal PWM pour ENB avant
 const int pwmChannelBackENA = 2;  // Canal PWM pour ENA arrière
 const int pwmChannelBackENB = 3;  // Canal PWM pour ENB arrière
 
-void setup() {
+void setupMouvement() {
   // Initialisation des broches pour la carte moteur avant
   pinMode(frontIN1, OUTPUT);
   pinMode(frontIN2, OUTPUT);

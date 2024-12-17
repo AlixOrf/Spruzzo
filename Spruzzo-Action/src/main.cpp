@@ -1,18 +1,24 @@
-#include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
+#include <Arduino.h>       // Nécessaire pour PlatformIO
+#include "mouvement.h"     // Inclut les déclarations des fonctions de mouvement
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  setupMouvement();        // Initialise les broches pour les moteurs
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  // Exemple : Appelle les fonctions de mouvement depuis mouvement.cpp
+  avancer(125);    // Le robot avance
+  delay(3000);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  tournerGauche(125); // Tourne à gauche
+  delay(2000);
+
+  tournerDroite(125); // Tourne à droite
+  delay(2000);
+
+  reculer(125);    // Le robot recule
+  delay(3000);
+
+  arreter();       // Arrête les moteurs
+  delay(2000);
 }
