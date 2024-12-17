@@ -57,14 +57,17 @@ void setup() {
 
 void loop() {
   // Exemple de séquence : avancer, tourner à gauche, reculer
-  avancer(200); // Avancer avec 80% de la vitesse maximale (200/255)
+  avancer(125); // Avancer avec 80% de la vitesse maximale (200/255)
   delay(3000);
 
-  tournerGauche(150); // Tourner à gauche à 60% de la vitesse
+  reculer(125); // Reculer à pleine vitesse
+  delay(3000);
+
+    tournerGauche(125); // Tourner à gauche à 60% de la vitesse
   delay(2000);
 
-  reculer(255); // Reculer à pleine vitesse
-  delay(3000);
+  tournerDroite(125);
+  delay(2000);
 
   arreter(); // Arrêter le robot
   delay(2000);
@@ -72,24 +75,6 @@ void loop() {
 
 // Fonction pour avancer
 void avancer(int vitesse) {
-  digitalWrite(frontIN1, HIGH);
-  digitalWrite(frontIN2, LOW);
-  digitalWrite(frontIN3, HIGH);
-  digitalWrite(frontIN4, LOW);
-
-  digitalWrite(backIN1, HIGH);
-  digitalWrite(backIN2, LOW);
-  digitalWrite(backIN3, HIGH);
-  digitalWrite(backIN4, LOW);
-
-  ledcWrite(pwmChannelFrontENA, vitesse);
-  ledcWrite(pwmChannelFrontENB, vitesse);
-  ledcWrite(pwmChannelBackENA, vitesse);
-  ledcWrite(pwmChannelBackENB, vitesse);
-}
-
-// Fonction pour reculer
-void reculer(int vitesse) {
   digitalWrite(frontIN1, LOW);
   digitalWrite(frontIN2, HIGH);
   digitalWrite(frontIN3, LOW);
@@ -106,16 +91,34 @@ void reculer(int vitesse) {
   ledcWrite(pwmChannelBackENB, vitesse);
 }
 
-// Fonction pour tourner à gauche
-void tournerGauche(int vitesse) {
-  digitalWrite(frontIN1, LOW);
+// Fonction pour reculer
+void reculer(int vitesse) {
+  digitalWrite(frontIN1, HIGH);
   digitalWrite(frontIN2, LOW);
   digitalWrite(frontIN3, HIGH);
   digitalWrite(frontIN4, LOW);
 
-  digitalWrite(backIN1, LOW);
+  digitalWrite(backIN1, HIGH);
   digitalWrite(backIN2, LOW);
   digitalWrite(backIN3, HIGH);
+  digitalWrite(backIN4, LOW);
+
+  ledcWrite(pwmChannelFrontENA, vitesse);
+  ledcWrite(pwmChannelFrontENB, vitesse);
+  ledcWrite(pwmChannelBackENA, vitesse);
+  ledcWrite(pwmChannelBackENB, vitesse);
+}
+
+// Fonction pour tourner à gauche
+void tournerGauche(int vitesse) {
+  digitalWrite(frontIN1, HIGH);
+  digitalWrite(frontIN2, LOW);
+  digitalWrite(frontIN3, LOW);
+  digitalWrite(frontIN4, LOW);
+
+  digitalWrite(backIN1, HIGH);
+  digitalWrite(backIN2, LOW);
+  digitalWrite(backIN3, LOW);
   digitalWrite(backIN4, LOW);
 
   ledcWrite(pwmChannelFrontENA, 0); // Arrêter le moteur avant gauche
@@ -123,6 +126,28 @@ void tournerGauche(int vitesse) {
   ledcWrite(pwmChannelBackENA, 0); // Arrêter le moteur arrière gauche
   ledcWrite(pwmChannelBackENB, vitesse); // Activer le moteur arrière droit
 }
+
+// Fonction pour tourner à droite
+void tournerDroite(int vitesse) {
+  // Moteurs avant
+  digitalWrite(frontIN1, LOW); // Moteur avant gauche avance
+  digitalWrite(frontIN2, LOW);
+  digitalWrite(frontIN3, HIGH);  // Moteur avant droit arrêté
+  digitalWrite(frontIN4, LOW);
+
+  // Moteurs arrière
+  digitalWrite(backIN1, LOW); // Moteur arrière gauche avance
+  digitalWrite(backIN2, LOW);
+  digitalWrite(backIN3, HIGH);  // Moteur arrière droit arrêté
+  digitalWrite(backIN4, LOW);
+
+  // Contrôle PWM (vitesse)
+  ledcWrite(pwmChannelFrontENA, vitesse); // Vitesse moteur avant gauche
+  ledcWrite(pwmChannelFrontENB, 0);       // Moteur avant droit arrêté
+  ledcWrite(pwmChannelBackENA, vitesse);  // Vitesse moteur arrière gauche
+  ledcWrite(pwmChannelBackENB, 0);        // Moteur arrière droit arrêté
+}
+
 
 // Fonction pour arrêter tous les moteurs
 void arreter() {
