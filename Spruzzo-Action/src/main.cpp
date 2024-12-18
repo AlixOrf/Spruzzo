@@ -2,8 +2,8 @@
 #include "wifi.h"
 
 // Informations du réseau Wi-Fi
-const char* ssid = "NomDuRéseau";
-const char* password = "MotDePasse";
+const char* ssid = "ESP-WROOM-32";
+const char* password = "2AC7Z-ESP32WROOM32";
 
 void setup() {
   Serial.begin(115200); // Initialise la communication série
