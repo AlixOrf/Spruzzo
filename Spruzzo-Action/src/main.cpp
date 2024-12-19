@@ -1,18 +1,23 @@
 #include <Arduino.h>
-
-// put function declarations here:
-int myFunction(int, int);
+#include "mouvement.h"
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  setupMouvement();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  avancer(125);
+  delay(3000);
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  tournerGauche(125);
+  delay(2000);
+
+  tournerDroite(125);
+  delay(2000);
+
+  reculer(125);
+  delay(3000);
+
+  arreter();
+  delay(2000);
 }
