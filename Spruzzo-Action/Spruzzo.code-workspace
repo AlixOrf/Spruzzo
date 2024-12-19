@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Spruzzo",
+			"path": ".."
+		},
+		{
+			"name": "Spruzzo-Action",
+			"path": "../../../../PlatformIO/Projects/Spruzzo-Action"
+		}
+	],
+	"settings": {}
+}
